@@ -545,7 +545,7 @@ class Generator:
 
 
 if __name__ == "__main__":
-    save_path = r"C:\DATA\Akuroma\BOV01_R/"
+    save_path = "C:/DATA/Akuroma/BOV01_R/"
     seq = Generator(sequence_name="Eloi Test", save_path=save_path)
 
     data = pd.read_excel("Resources/test_excel.xlsx")
