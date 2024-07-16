@@ -1,5 +1,6 @@
 import textwrap
 import pandas as pd
+from datetime import datetime
 
 class Generator:
     def __init__(self, sequence_name: str, save_path: str) -> None:
@@ -29,7 +30,7 @@ class Generator:
         </String>
         <String>
         <Name>Creation Date</Name>
-        <Val>11/07/2024</Val>
+        <Val>{datetime.now().strftime("%d/%m/%Y")}</Val>
         </String>
         <U16>
         <Name>Repetition</Name>
@@ -555,7 +556,7 @@ if __name__ == "__main__":
     # For every point in the Excel file, perform this functions below
     for i in range(len(data)):
         # Update the save path value to match the data file
-        seq.save_path = save_path + data.iloc[i,1] + ".txt"
+        seq.save_path = (save_path + str(data.iloc[i,1]) + ".txt").replace("/", r"\\")
 
         # Move Absolute
         seq.move_absolute(axis=1, value=data.iloc[i,6], speed=3.0)
